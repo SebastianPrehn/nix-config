@@ -14,13 +14,14 @@
 	  url = "github:nix-community/home-manager/master";
 	  inputs.nixpkgs.follows = "nixpkgs";
 	};
-	import-tree.url = "github:vic/import-tree";
-
-	wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
+	quickshell = {
+	  url = "github:quickshell-mirror/quickshell";
+	  inputs.nixpkgs.follows = "nixpkgs";
+	};
     };
 
-    # import modules/ automatically
-    outputs = inputs: inputs.flake-parts.lib.mkFlake
-      {inherit inputs;}
-      (inputs.import-tree ./modules);
+    outputs = inputs: 
+	inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+	  imports = [ ./modules/parts.nix ];
+	};
 }

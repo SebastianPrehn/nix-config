@@ -1,7 +1,3 @@
-{ self, inputs, ... }:
-{
-
-  flake.nixosModules.odinConfiguration =
     {
       config,
       pkgs,
@@ -9,26 +5,16 @@
       ...
     }:
     {
-      imports = [
-        self.nixosModules.odinHardware
-        self.nixosModules.niri
-      ];
-
       # Bootloader.
       boot.loader.systemd-boot.enable = true;
       boot.loader.efi.canTouchEfiVariables = true;
 
-      networking.hostName = "odin"; # Define your hostname.
-
-      # Enable networking
+      networking.hostName = "odin"; 
       networking.networkmanager.enable = true;
 
-      # Set your time zone.
       time.timeZone = "Europe/Copenhagen";
 
-      # Select internationalisation properties.
       i18n.defaultLocale = "en_DK.UTF-8";
-
       i18n.extraLocaleSettings = {
         LC_ADDRESS = "da_DK.UTF-8";
         LC_IDENTIFICATION = "da_DK.UTF-8";
@@ -41,13 +27,10 @@
         LC_TIME = "da_DK.UTF-8";
       };
 
-      # Configure keymap in X11
       services.xserver.xkb = {
         layout = "dk";
         variant = "";
       };
-
-      # Configure console keymap
       console.keyMap = "dk-latin1";
 
       users.users.sebastian = {
@@ -57,10 +40,8 @@
           "networkmanager"
           "wheel"
         ];
-        packages = with pkgs; [ ];
       };
 
-      # Allow unfree packages
       nixpkgs.config.allowUnfree = true;
 
       nix.settings.experimental-features = [
@@ -75,7 +56,12 @@
         curl
         firefox
         nixpkgs-fmt
-        nixfmt-rfc-style
+        nixfmt
+	ghostty
+	fuzzel
+	xwayland-satellite
+	awww
+	vlc
       ];
 
       # Some programs need SUID wrappers, can be configured further or are
@@ -98,7 +84,8 @@
         };
       };
       # Enable the OpenSSH daemon.
-      # services.openssh.enable = true;
+      services.openssh.enable = true;
+      services.fail2ban.enable = true; 
 
       # Open ports in the firewall.
       # networking.firewall.allowedTCPPorts = [ ... ];
@@ -107,6 +94,4 @@
       # networking.firewall.enable = false;
 
       system.stateVersion = "25.11";
-
-    };
 }
