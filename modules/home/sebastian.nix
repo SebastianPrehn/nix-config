@@ -7,6 +7,7 @@
 
   imports = [
     ../features/niri/home.nix
+    ../features/waybar/home.nix
   ];
 
   programs.git = {
@@ -24,6 +25,9 @@
   };
   home.packages = with pkgs; [ 
     discord
+    nerd-fonts.jetbrains-mono
+   
   ];
+  fonts.fontconfig.enable = true;
 
 }

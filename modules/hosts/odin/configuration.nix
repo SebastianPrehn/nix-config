@@ -62,8 +62,12 @@
 	xwayland-satellite
 	awww
 	vlc
+	vial
       ];
 
+      services.udev.packages = with pkgs; [
+	vial
+      ];
       # Some programs need SUID wrappers, can be configured further or are
       # started in user sessions.
       # programs.mtr.enable = true;
@@ -84,8 +88,8 @@
         };
       };
       # Enable the OpenSSH daemon.
-      services.openssh.enable = true;
-      services.fail2ban.enable = true; 
+      #services.openssh.enable = true;
+      #services.fail2ban.enable = true; 
 
       # Open ports in the firewall.
       # networking.firewall.allowedTCPPorts = [ ... ];

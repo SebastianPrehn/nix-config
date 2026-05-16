@@ -14,10 +14,6 @@
 	  url = "github:nix-community/home-manager/master";
 	  inputs.nixpkgs.follows = "nixpkgs";
 	};
-	quickshell = {
-	  url = "github:quickshell-mirror/quickshell";
-	  inputs.nixpkgs.follows = "nixpkgs";
-	};
     };
 
     outputs = inputs: 
