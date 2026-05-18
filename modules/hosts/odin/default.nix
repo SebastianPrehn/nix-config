@@ -4,7 +4,10 @@
 
     # specialArgs passes flake inputs into every NixOS module in this list,
     # so I can use 'inputs' in configuration.nix etc. if I ever need it.
-    specialArgs = { inherit inputs; };
+    specialArgs = {
+      inherit inputs; 
+      pkgs-stable = inputs.nixpkgs-stable.legacyPackages.x86_64-linux;
+    };
 
     modules = [ 
       ./configuration.nix
