@@ -7,6 +7,27 @@
     specialArgs = {
       inherit inputs; 
       pkgs-stable = inputs.nixpkgs-stable.legacyPackages.x86_64-linux;
+      pkgs-cuda = import inputs.nixpkgs {
+	system = "x86_64-linux";
+	overlays = [ # overlay to update koboldcpp until pkgs has caught up
+	  (final: prev: {
+	    koboldcpp = prev.koboldcpp.overrideAttrs (old: {
+	      version = "1.113.2";
+	      src = prev.fetchFromGitHub {
+		owner = "LostRuins";
+		repo = "koboldcpp";
+		rev = "v1.113.2";
+		hash = "sha256-NWB2Nwg74AVz8gc8aa/xy56Tms9dH5osvBZuoJemJqI=";
+	      };
+	    });
+	  })
+	];
+	config = {
+	  allowUnfree = true;
+	  cudaSupport = true;
+	  cudaCapabilities = [ "8.6" ];
+	};
+      };
     };
 
     modules = [ 

@@ -3,6 +3,7 @@
   pkgs,
   lib,
   pkgs-stable,
+  pkgs-cuda,
   ...
 }:
 {
@@ -43,7 +44,9 @@
     ];
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -74,8 +77,8 @@
     heroic
     pkgs-stable.bottles
     wineWow64Packages.waylandFull
-    ollama
-    koboldcpp
+    pkgs-cuda.koboldcpp
+    (ollama.override { acceleration = "cuda"; })
     sillytavern
     fido2-manage
   ];
