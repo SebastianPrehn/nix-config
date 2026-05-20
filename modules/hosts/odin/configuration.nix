@@ -38,6 +38,7 @@
   users.users.sebastian = {
     isNormalUser = true;
     description = "Sebastian Larsen Prehn";
+    shell = pkgs.zsh;
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -53,6 +54,24 @@
     "flakes"
   ];
 
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+
+    shellAliases = {
+      ll = "ls -l";
+      upnix = "sudo nixos-rebuild switch --flake .#odin";
+      koboldcpp = "LD_PRELOAD=/run/opengl-driver/lib/libcuda.so.1 koboldcpp";
+    };
+
+    histSize = 10000;
+    histFile = "$HOME/.zsh_history";
+    setOptions = [
+      "HIST_IGNORE_ALL_DUPS"
+    ];
+  };
   environment.systemPackages = with pkgs; [
     vim
     wget
