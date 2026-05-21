@@ -100,8 +100,19 @@
     (ollama.override { acceleration = "cuda"; })
     sillytavern
     fido2-manage
-    mullvad-vpn
   ];
+
+  services.mullvad-vpn.enable = true;
+  services.mullvad-vpn.package = pkgs.mullvad-vpn;
+  networking.nameservers = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
+
+  services.resolved = {
+    enable = true;
+    settings.Resolve.DNSSEC = "true";
+    settings.Resolve.Domains = [ "~." ];
+    settings.Resolve.FallbackDNS = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
+    settings.Resolve.DNSOverTLS = "true";
+  };
 
   services.udev.packages = with pkgs; [
     vial
