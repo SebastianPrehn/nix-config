@@ -100,6 +100,7 @@
     (ollama.override { acceleration = "cuda"; })
     sillytavern
     fido2-manage
+    mullvad-vpn
   ];
 
   services.udev.packages = with pkgs; [
