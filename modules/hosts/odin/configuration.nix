@@ -89,7 +89,6 @@
     stash
     xivlauncher
     bitwarden-desktop
-    prowlarr
     sabnzbd
     suwayomi-server
     thunar
@@ -102,7 +101,11 @@
     sillytavern
     fido2-manage
     unzip
+    vagrant
   ];
+
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 
   programs.firefox = {
     enable = true;
@@ -198,5 +201,5 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 }
