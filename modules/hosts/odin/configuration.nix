@@ -103,6 +103,7 @@
     unzip
     vagrant
     cutter
+    prismlauncher
   ];
 
   virtualisation.virtualbox.host.enable = true;
