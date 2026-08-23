@@ -103,6 +103,7 @@
     unzip
     prismlauncher
     nautilus
+    librewolf
   ];
 
   services.mullvad-vpn.enable = true;
