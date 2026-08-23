@@ -101,14 +101,9 @@
     sillytavern
     fido2-manage
     unzip
-    vagrant
-    cutter
     prismlauncher
     nautilus
   ];
-
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 
   services.mullvad-vpn.enable = true;
   services.mullvad-vpn.gui.enable = true;
