@@ -88,8 +88,6 @@
     vial
     stash
     xivlauncher
-    sabnzbd
-    whisparr
     suwayomi-server
     thunar
     thunar-archive-plugin
@@ -104,11 +102,50 @@
     prismlauncher
     nautilus
     librewolf
+    openconnect
   ];
 
   services.mullvad-vpn.enable = true;
   services.mullvad-vpn.gui.enable = true;
   networking.nameservers = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
+
+  services.sabnzbd = {
+    enable = true;
+    openFirewall = true;
+    allowConfigWrite = true;
+  };
+
+  services.prowlarr = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  services.whisparr = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  services.sonarr = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  users.groups.media.gid = 990;
+  users.users.whisparr.extraGroups = [ "media" ];
+  users.users.sabnzbd.extraGroups = [ "media" ];
+  users.users.sonarr.extraGroups = [ "media" ];
+  systemd.services.whisparr.unitConfig.RequiresMountsFor = [ "/mnt/media" ];
+  systemd.services.whisparr.serviceConfig.ReadWritePaths = [ "/mnt/media" ];
+  systemd.services.sonarr = {
+    unitConfig.RequiresMountsFor = [ "/mnt/sharkoon" ];
+    serviceConfig.ReadWritePaths = [ "/mnt/sharkoon" ];
+  };
+
+  systemd.tmpfiles.rules = [
+    "d /var/lib/sabnzbd/Downloads            0755 sabnzbd sabnzbd - -"
+    "d /var/lib/sabnzbd/Downloads/incomplete 0700 sabnzbd sabnzbd - -"
+    "d /var/lib/sabnzbd/Downloads/complete   2775 sabnzbd media   - -"
+];
 
   services.resolved = {
     enable = true;

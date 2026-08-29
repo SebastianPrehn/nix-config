@@ -21,7 +21,8 @@
     options = [
       "rw"
       "uid=1000"
-      "umask=022"
+      "gid=990"
+      "umask=002"
       "nofail"
       "x-systemd.automount"
     ];
@@ -34,7 +35,8 @@
     options = [
       "rw"
       "uid=1000"
-      "umask=022"
+      "gid=990"
+      "umask=002"
       "nofail"
       "x-systemd.automount"
     ];
