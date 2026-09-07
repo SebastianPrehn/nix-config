@@ -13,6 +13,19 @@
 
   networking.hostName = "odin";
   networking.networkmanager.enable = true;
+  networking.networkmanager.plugins = with pkgs; [
+    networkmanager-openconnect
+  ];
+  
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ ];
+    allowedUDPPorts = [ ];
+    allowPing = true;
+    logRefusedConnections = true;
+    checkReversePath = "loose";
+  };
+
 
   time.timeZone = "Europe/Copenhagen";
 
@@ -64,6 +77,10 @@
       ll = "ls -l";
       upnix = "sudo nixos-rebuild switch --flake .#odin";
       koboldcpp = "LD_PRELOAD=/run/opengl-driver/lib/libcuda.so.1 koboldcpp";
+      kuvpn = "nmcli --ask con up KUVPN";
+      kuvpn-down = "nmcli con down KUVPN";
+      proton-dk = "nmcli con up dk-1-DK-55";
+      proton-dk-down = "nmcli con down dk-1-DK-55";
     };
 
     histSize = 10000;
@@ -97,36 +114,34 @@
     pkgs-cuda.koboldcpp
     (ollama.override { acceleration = "cuda"; })
     sillytavern
-    fido2-manage
+    #fido2-manage
     unzip
     prismlauncher
     nautilus
     librewolf
-    openconnect
-    qbz
+    networkmanagerapplet
+    dig
   ];
-
-  networking.nameservers = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
 
   services.sabnzbd = {
     enable = true;
-    openFirewall = true;
+    openFirewall = false;
     allowConfigWrite = true;
   };
 
   services.prowlarr = {
     enable = true;
-    openFirewall = true;
+    openFirewall = false;
   };
 
   services.whisparr = {
     enable = true;
-    openFirewall = true;
+    openFirewall = false;
   };
 
   services.sonarr = {
     enable = true;
-    openFirewall = true;
+    openFirewall = false;
   };
 
   users.groups.media.gid = 990;
@@ -146,18 +161,6 @@
     "d /var/lib/sabnzbd/Downloads/complete   2775 sabnzbd media   - -"
 ];
 
-  services.resolved = {
-    enable = true;
-    settings.Resolve.DNSSEC = "true";
-    settings.Resolve.Domains = [ "~." ];
-    settings.Resolve.FallbackDNS = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
-    settings.Resolve.DNSOverTLS = "true";
-  };
-
-  services.udev.packages = with pkgs; [
-    vial
-    libu2f-host
-  ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -178,31 +181,54 @@
   security.pam.u2f = {
     enable = true;
     control = "sufficient";
-    settings.cue = true;
-    settings.authfile = "/etc/token2/u2f_keys"; 
+    settings = {
+      interactive = true;
+      cue = true;
+      origin = "pam://yubi";
+      authfile = pkgs.writeText "u2f-mappings" ''
+        sebastian:GwKVJcW+ATlUlc2EzK6SagW1qlZaq6Pz1TAOGqbpjC9k7K+3OdUloWrXjQv8Bqa/NB1V28iNsIlDYUE4652xpw==,M17pAc9lp2gMIk763dBNIg99v8Zv5OeO3RHdNlwLCKuiWaCaKjJnxULUa214gZWlsmkrolVfdUza1pam3LhOcw==,es256,+presence
+      '';
+    };
   };   
 
 
   # List services that you want to enable:
-
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
+  services = {
+    greetd = {
+      enable = true;
+      settings.default_session = {
         command = "${pkgs.niri}/bin/niri-session";
         user = "sebastian";
       };
     };
-  };
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-  services.fail2ban.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+    # Enable the OpenSSH daemon.
+    openssh = {
+      enable = true;
+      settings = {
+        PasswordAuthentication = false; # keys only
+        PermitRootLogin = "no";
+      };
+    };
+
+    resolved = {
+      enable = true;
+      settings.Resolve = {
+        DNSSEC = "false";
+        Domains = [];
+        DNSOverTLS = "opportunistic";
+      };
+    };
+
+    fail2ban.enable = true;
+
+    pcscd.enable = true;
+    udev.packages = with pkgs; [
+      vial
+      libu2f-host
+      yubikey-personalization
+    ];
+  };
 
   system.stateVersion = "26.05";
 }
