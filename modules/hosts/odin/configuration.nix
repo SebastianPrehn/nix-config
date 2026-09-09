@@ -105,7 +105,6 @@
     vial
     stash
     xivlauncher
-    suwayomi-server
     thunar
     thunar-archive-plugin
     heroic
@@ -142,6 +141,11 @@
   services.sonarr = {
     enable = true;
     openFirewall = false;
+  };
+
+  services.suwayomi-server = {
+    enable = true;
+    settings.server.port = 4567;
   };
 
   users.groups.media.gid = 990;
