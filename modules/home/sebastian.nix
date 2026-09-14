@@ -54,6 +54,26 @@
     };
   };
 
+
+  programs.yazi = {
+    enable = true;
+  };
+
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs;
+    extraPackages = epkgs: [
+      epkgs.nix-mode
+      epkgs.nixfmt
+    ];
+  };
+
+  services.emacs = {
+    enable = true;
+    defaultEditor = true;
+    client.enable = true;
+  };  
+
   services.gpg-agent = {
     enable = true;
 
@@ -65,9 +85,6 @@
     '';
   };
 
-  programs.yazi = {
-    enable = true;
-  };
   home.packages = with pkgs; [ 
     discord
     nerd-fonts.jetbrains-mono

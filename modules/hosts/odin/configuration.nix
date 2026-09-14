@@ -81,6 +81,8 @@
       kuvpn-down = "nmcli con down KUVPN";
       proton-dk = "nmcli con up dk-1-DK-55";
       proton-dk-down = "nmcli con down dk-1-DK-55";
+      torrent-dk = "nmcli con up torrent-dk-51";
+      torrent-dk-down = "nmcli con down torrent-dk-51";
     };
 
     histSize = 10000;
