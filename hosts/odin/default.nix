@@ -34,8 +34,8 @@
       ./configuration.nix
       ./hardware.nix
       ./storage.nix
-      ../../features/niri/niri.nix
-      ../../features/gaming/gaming.nix
+      ../../modules/nixos/niri.nix
+      ../../modules/nixos/gaming.nix
 
       # home-manager as a NixOS module (manages dotfiles)
       inputs.home-manager.nixosModules.home-manager

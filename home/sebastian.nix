@@ -6,8 +6,8 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ../features/niri/home.nix
-    ../features/waybar/home.nix
+    ../modules/home-manager/niri
+    ../modules/home-manager/waybar
   ];
 
   programs.git = {
