@@ -2,17 +2,25 @@
   programs.waybar = {
     enable = true;
     systemd.enable = true;
-    
+
     settings = {
       mainBar = {
-	layer = "top";
-	position = "top";
+        layer = "top";
+        position = "top";
         height = 32;
         spacing = 4;
 
-        modules-left   = [ "niri/workspaces" "niri/window" ];
+        modules-left = [
+          "niri/workspaces"
+          "niri/window"
+        ];
         modules-center = [ "clock" ];
-        modules-right  = [ "network" "cpu" "memory" "tray" ];
+        modules-right = [
+          "network"
+          "cpu"
+          "memory"
+          "tray"
+        ];
 
         "niri/workspaces" = {
           # niri uses dynamic workspaces

@@ -16,7 +16,7 @@
   networking.networkmanager.plugins = with pkgs; [
     networkmanager-openconnect
   ];
-  
+
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ ];
@@ -25,7 +25,6 @@
     logRefusedConnections = true;
     checkReversePath = "loose";
   };
-
 
   time.timeZone = "Europe/Copenhagen";
 
@@ -165,7 +164,7 @@
     "d /var/lib/sabnzbd/Downloads            0755 sabnzbd sabnzbd - -"
     "d /var/lib/sabnzbd/Downloads/incomplete 0700 sabnzbd sabnzbd - -"
     "d /var/lib/sabnzbd/Downloads/complete   2775 sabnzbd media   - -"
-];
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -180,7 +179,7 @@
   };
 
   security.pam.services = {
-    login.u2fAuth = true; 
+    login.u2fAuth = true;
     sudo.u2fAuth = true;
   };
 
@@ -195,8 +194,7 @@
         sebastian:GwKVJcW+ATlUlc2EzK6SagW1qlZaq6Pz1TAOGqbpjC9k7K+3OdUloWrXjQv8Bqa/NB1V28iNsIlDYUE4652xpw==,M17pAc9lp2gMIk763dBNIg99v8Zv5OeO3RHdNlwLCKuiWaCaKjJnxULUa214gZWlsmkrolVfdUza1pam3LhOcw==,es256,+presence
       '';
     };
-  };   
-
+  };
 
   # List services that you want to enable:
   services = {
@@ -221,7 +219,7 @@
       enable = true;
       settings.Resolve = {
         DNSSEC = "false";
-        Domains = [];
+        Domains = [ ];
         DNSOverTLS = "opportunistic";
       };
     };

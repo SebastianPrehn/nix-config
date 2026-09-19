@@ -15,7 +15,7 @@
     settings = {
       user = {
         name = "Sebastian Larsen Prehn";
-	email = "slp@sebastianprehn.dk";
+        email = "slp@sebastianprehn.dk";
         signingKey = "0xA14DA60EC4964E9E";
       };
       commit = {
@@ -54,7 +54,6 @@
     };
   };
 
-
   programs.yazi = {
     enable = true;
   };
@@ -72,7 +71,7 @@
     enable = true;
     defaultEditor = true;
     client.enable = true;
-  };  
+  };
 
   services.gpg-agent = {
     enable = true;
@@ -85,10 +84,10 @@
     '';
   };
 
-  home.packages = with pkgs; [ 
+  home.packages = with pkgs; [
     discord
     nerd-fonts.jetbrains-mono
-   
+
   ];
   fonts.fontconfig.enable = true;
 

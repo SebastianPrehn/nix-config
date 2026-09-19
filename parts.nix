@@ -1,9 +1,9 @@
 { ... }: {
-    systems = [
-      "x86_64-linux"
-    ];
+  systems = [
+    "x86_64-linux"
+  ];
 
-    imports = [
-      ./host/odin/default.nix
-    ];
+  imports = [
+    ./host/odin/default.nix
+  ];
 }
