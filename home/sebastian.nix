@@ -6,8 +6,8 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ../modules/home-manager/niri
-    ../modules/home-manager/waybar
+    ../modules/niri
+    ../modules/waybar
   ];
 
   programs.git = {
@@ -54,10 +54,34 @@
     };
   };
 
-  programs.yazi = {
+  programs.zsh = {
     enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    shellAliases = {
+      ll = "ls -l";
+      upnix = "sudo nixos-rebuild switch --flake .#odin";
+      koboldcpp = "LD_PRELOAD=/run/opengl-driver/lib/libcuda.so.1 koboldcpp";
+      kuvpn = "nmcli --ask con up KUVPN";
+      kuvpn-down = "nmcli con down KUVPN";
+      proton-dk = "nmcli con up dk-1-DK-55";
+      proton-dk-down = "nmcli con down dk-1-DK-55";
+      torrent-dk = "nmcli con up torrent-dk-51";
+      torrent-dk-down = "nmcli con down torrent-dk-51";
+    };
+
+    history = {
+      size = 10000;
+      path = "$HOME/.zsh_history";
+      ignoreAllDups = true;
+      ignorePatterns = ["rm *" "pkill *" "cp *"];
+    };
   };
 
+
+  
   programs.emacs = {
     enable = true;
     package = pkgs.emacs;

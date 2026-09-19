@@ -66,38 +66,42 @@
     "flakes"
   ];
 
-  programs.zsh = {
+  programs.zsh.enable = true;
+
+  programs.niri.enable = true;
+
+  # Steam
+  programs.steam = {
     enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      ll = "ls -l";
-      upnix = "sudo nixos-rebuild switch --flake .#odin";
-      koboldcpp = "LD_PRELOAD=/run/opengl-driver/lib/libcuda.so.1 koboldcpp";
-      kuvpn = "nmcli --ask con up KUVPN";
-      kuvpn-down = "nmcli con down KUVPN";
-      proton-dk = "nmcli con up dk-1-DK-55";
-      proton-dk-down = "nmcli con down dk-1-DK-55";
-      torrent-dk = "nmcli con up torrent-dk-51";
-      torrent-dk-down = "nmcli con down torrent-dk-51";
-    };
-
-    histSize = 10000;
-    histFile = "$HOME/.zsh_history";
-    setOptions = [
-      "HIST_IGNORE_ALL_DUPS"
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
     ];
   };
+  
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware = {
+    nvidia = {
+      modesetting.enable = true;
+      open = true;
+      nvidiaSettings = true;
+    };
+    graphics = {
+      enable = true;
+      enable32Bit = true; # needed for Steam/wine
+    };
+  };
+
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    __GL_GSYNC_ALLOWED = "1";
+  };
+  
   environment.systemPackages = with pkgs; [
     vim
     wget
     git
     curl
     firefox
-    nixpkgs-fmt
-    nixfmt
     ghostty
     fuzzel
     xwayland-satellite
@@ -123,6 +127,7 @@
     dig
   ];
 
+  
   services.sabnzbd = {
     enable = true;
     openFirewall = false;
