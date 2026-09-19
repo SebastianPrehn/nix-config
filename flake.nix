@@ -14,11 +14,22 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [ ./parts.nix ];
-    };
+    inputs@{ ... }:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } (
+      { ... }:
+      {
+        systems = [ "x86_64-linux" ];
+        imports = [
+          ./host/odin
+          ./modules/devshell.nix
+        ];
+      }
+    );
 }

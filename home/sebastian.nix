@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... }: {
   home.username = "sebastian";
   home.homeDirectory = "/home/sebastian";
   home.stateVersion = "25.11";
@@ -76,12 +76,14 @@
       size = 10000;
       path = "$HOME/.zsh_history";
       ignoreAllDups = true;
-      ignorePatterns = ["rm *" "pkill *" "cp *"];
+      ignorePatterns = [
+        "rm *"
+        "pkill *"
+        "cp *"
+      ];
     };
   };
 
-
-  
   programs.emacs = {
     enable = true;
     package = pkgs.emacs;

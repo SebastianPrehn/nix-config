@@ -1,7 +1,5 @@
 {
-  config,
   pkgs,
-  lib,
   pkgs-stable,
   pkgs-cuda,
   ...
@@ -77,7 +75,7 @@
       proton-ge-bin
     ];
   };
-  
+
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
     nvidia = {
@@ -95,7 +93,7 @@
     NIXOS_OZONE_WL = "1";
     __GL_GSYNC_ALLOWED = "1";
   };
-  
+
   environment.systemPackages = with pkgs; [
     vim
     wget
@@ -127,7 +125,6 @@
     dig
   ];
 
-  
   services.sabnzbd = {
     enable = true;
     openFirewall = false;
