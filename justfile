@@ -10,4 +10,4 @@ check:
 	nix flake check
 
 switch:
-	nh os switch
+	nh os switch .
