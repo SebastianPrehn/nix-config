@@ -4,6 +4,6 @@
     ];
 
     imports = [
-      ./hosts/odin/default.nix
+      ./host/odin/default.nix
     ];
 }
