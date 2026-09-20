@@ -23,6 +23,7 @@ in
     pkgs.nixfmt
     pkgs.futhark
     pkgs.clang-tools
+    pkgs.pandoc
   ];
 
   programs.emacs = {

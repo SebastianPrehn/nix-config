@@ -74,12 +74,14 @@
  :ui fonts
  :ui modeline
  :ui theme
+ :editor evil
+ :vc magit
  :lang eglot
  :lang nix
  :lang cpp
- :lang futhark)
+ :lang futhark
+ :lang markdown)
 
-(load (expand-file-name "local.el" user-emacs-directory) t)
 
 (provide 'init)
 ;;; init.el ends here
