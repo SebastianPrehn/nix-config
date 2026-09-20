@@ -21,6 +21,8 @@ in
   home.packages = [
     pkgs.nerd-fonts.symbols-only
     pkgs.nixfmt
+    pkgs.futhark
+    pkgs.clang-tools
   ];
 
   programs.emacs = {
@@ -29,6 +31,12 @@ in
       config = packageManifest;
       alwaysEnsure = true;
       package = pkgs.emacs;
+      extraEmacsPackages = epkgs: [
+        (epkgs.treesit-grammars.with-grammars (grammars: [
+          grammars.tree-sitter-cpp
+          grammars.tree-sitter-cuda
+        ]))
+      ];
     };
   };
 

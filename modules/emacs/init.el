@@ -70,6 +70,15 @@
 (require 'slp-modules)
 
 ;; Declare modules
+(slp/modules!
+ :ui fonts
+ :ui modeline
+ :ui theme
+ :lang eglot
+ :lang nix
+ :lang cpp
+ :lang futhark)
+
 (load (expand-file-name "local.el" user-emacs-directory) t)
 
 (provide 'init)
