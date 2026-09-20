@@ -11,3 +11,4 @@ check:
 
 switch:
 	nh os switch .
+        systemctl --user restart emacs.service

@@ -2,11 +2,16 @@
 {
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs;
-    extraPackages = epkgs: [
-      epkgs.nix-mode
-      epkgs.nixfmt
-    ];
+    package = pkgs.emacsWithPackagesFromUsePackage {
+      config = ./init.el;
+      defaultInitFile = true;
+      alwaysEnsure = true;
+      package = pkgs.emacs;
+      extraEmacsPackages = epkgs: [
+        epkgs.nix-mode
+        epkgs.nixfmt
+      ];
+    };
   };
 
   services.emacs = {
