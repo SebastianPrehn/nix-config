@@ -1,16 +1,34 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
+let
+  moduleConfigs = builtins.filter (f: lib.hasSuffix "config.el" (toString f)) (
+    lib.filesystem.listFilesRecursive ./modules
+  );
+
+  packageManifest = pkgs.writeText "package-manifest.el" (
+    builtins.readFile ./init.el
+    + "\n"
+    + lib.concatMapStrings (f: builtins.readFile f + "\n") moduleConfigs
+  );
+in
 {
+  home.file = {
+    ".emacs.d/early-init.el".source = ./early-init.el;
+    ".emacs.d/init.el".source = ./init.el;
+    ".emacs.d/lisp".source = ./lisp;
+    ".emacs.d/modules".source = ./modules;
+  };
+
+  home.packages = [
+    pkgs.nerd-fonts.symbols-only
+    pkgs.nixfmt
+  ];
+
   programs.emacs = {
     enable = true;
     package = pkgs.emacsWithPackagesFromUsePackage {
-      config = ./init.el;
-      defaultInitFile = true;
+      config = packageManifest;
       alwaysEnsure = true;
       package = pkgs.emacs;
-      extraEmacsPackages = epkgs: [
-        epkgs.nix-mode
-        epkgs.nixfmt
-      ];
     };
   };
 

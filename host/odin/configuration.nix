@@ -205,6 +205,18 @@
     };
   };
 
+  security.polkit.enable = true;
+
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if ((action.id == "org.debian.pcsc-lite.access_pcsc" ||
+           action.id == "org.debian.pcsc-lite.access_card") &&
+          subject.isInGroup("wheel")) {
+        return polkit.Result.YES;
+      }
+    });
+  '';
+
   # List services that you want to enable:
   services = {
     greetd = {
