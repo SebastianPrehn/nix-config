@@ -10,10 +10,7 @@
           "*.lock"
           ".gitignore"
         ];
-        programs.nixfmt = {
-          enable = true;
-          package = pkgs.nixfmt-rfc-style;
-        };
+        programs.nixfmt.enable = true;
         programs.deadnix.enable = true;
       };
       packages.default = pkgs.mkShell {

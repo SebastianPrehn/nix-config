@@ -8,6 +8,7 @@
   imports = [
     ../modules/niri
     ../modules/waybar
+    ../modules/emacs
   ];
 
   programs.git = {
@@ -28,7 +29,7 @@
     enable = true;
     nix-direnv.enable = true;
   };
-  
+
   programs.gpg = {
     enable = true;
 
@@ -87,21 +88,6 @@
         "cp *"
       ];
     };
-  };
-
-  programs.emacs = {
-    enable = true;
-    package = pkgs.emacs;
-    extraPackages = epkgs: [
-      epkgs.nix-mode
-      epkgs.nixfmt
-    ];
-  };
-
-  services.emacs = {
-    enable = true;
-    defaultEditor = true;
-    client.enable = true;
   };
 
   services.gpg-agent = {
