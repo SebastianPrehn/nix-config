@@ -75,6 +75,15 @@
  :ui modeline
  :ui theme
  :editor evil
+ :completion cape
+ :completion consult
+ :completion corfu
+ :completion embark
+ :completion marginalia
+ :completion orderless
+ :completion tempel
+ :completion vertico
+ :completion which-key
  :vc magit
  :lang eglot
  :lang nix

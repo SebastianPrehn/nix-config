@@ -33,6 +33,7 @@
                    :italic nil))))
 
 (use-package git-link
+  :commands (git-link git-link-commit)
   :custom
   (git-link-use-commit t)
   (git-link-open-in-browser t))
