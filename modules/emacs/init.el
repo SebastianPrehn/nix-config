@@ -75,6 +75,7 @@
  :ui modeline
  :ui theme
  :editor evil
+ :kbd general
  :completion cape
  :completion consult
  :completion corfu
@@ -84,6 +85,8 @@
  :completion tempel
  :completion vertico
  :completion which-key
+ :misc elfeed
+ :misc speedbar
  :vc magit
  :lang eglot
  :lang nix

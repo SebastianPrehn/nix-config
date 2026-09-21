@@ -1,0 +1,61 @@
+#+TITLE: Elfeed Feeds
+
+* Feeds
+** Blogs :elfeed:
+*** [[http://nullprogram.com/feed/][Chris Wellons' null program]]
+*** [[https://sophiebos.io/index.xml][Sophie Bosio]]
+*** [[https://sigkill.dk/atom.xml][Troels Henriksen]]
+*** [[https://danluu.com/atom.xml][Dan Luu]]
+*** [[https://drewdevault.com/blog/index.xml][Drew Devault]]
+*** [[https://pharr.org/matt/blog/feed.xml][Matt Pharr's blog]]
+*** [[https://writing.kemitchell.com/feed.xml][Kyle E. Mitchell]]
+*** [[https://pythonspeed.com/atom.xml][Itamar Turner-Trauring]]
+*** [[https://ploum.net/atom_en.xml][Lionel Dricot (Ploum)]]
+*** [[https://protesilaos.com/politics.xml][Protesilaos' Politics Blog]]
+*** [[https://protesilaos.com/commentary.xml][Protesilaos' Commentary Blog]]
+*** [[https://protesilaos.com/games.xml][Protesilaos' Gaming Blog]]
+*** [[https://noonker.github.io/index.xml][Noonker]]
+*** [[https://simon.peytonjones.org/feed.xml][Simon Peyton Jones]]
+*** [[https://johnrakestraw.com/index.xml][John Rakestraw]]
+*** [[https://weeklyrust.substack.com/feed][Weekly Rust]]
+*** [[https://www.rousette.org.uk/index.xml][Rousette]]
+*** [[https://notthebe.ee/rss.xml][Wolfgang]]
+*** Security :security:
+**** [[https://www.schneier.com/feed/atom/][Bruce Schneier on Security]]
+*** Emacs :emacs:
+**** [[https://planet.emacslife.com/atom.xml][Planet Emacslife]]
+**** [[https://sachachua.com/blog/category/emacs-news/feed/index.xml][Emacs News]]
+**** [[https://sachachua.com/blog/category/emacs/feed/index.xml][Sacha Chua]]
+**** [[https://protesilaos.com/codelog.xml][Protesilaos' Coding Blog]]
+*** Comics :comics:
+**** [[https://xkcd.com/rss.xml][XKCD]]
+** Youtube :elfeed:
+*** Entertainment :entertainment:
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCCbfB3cQtkEAiKfdRQnfQvw][Jesse Cox]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UC8bSNxb8Oc7b28N2TTrQC1g][Too Old for This]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UC7EUErrXAtCjdr8-SuLaGow][Almost Too Old for This]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCV6g95OBbVtFmN9uiJzkFqQ][CircleToonsHD]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCtJrxXDeJ9bINlrW-RPBI9Q][BeneG.]]
+**** [[ttps://www.youtube.com/feeds/videos.xml?channel_id=UCcoO-8J0EYQHGPFQqwmAzVQ"][exurb2a]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCXGR70CkW_pXb8n52LzCCRw][Mythical Kitchen]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCE1jXbVAGJQEORz9nZqb5bQ][Ahoy]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCzJ3EGLJbFcHJJ8r1rNGSJQ][Pint]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UC-ufRLYrXxrIEApGn9VG5pQ][Reject Convenience]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCEQ7KR9enYdQsB6kcMnw0NA][Mortismal Gaming]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCsXVk37bltHxD1rDPwtNM8Q][Kurzgesagt]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCq8ZAAsI89IoJ-fn1gYpO3g][Nightshift - Kurzgesagt After Dark]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCAbAsEZ-0LccTNbl8r-3EaQ][Scott Yu-Jan]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UC4dxXZQq-ofAadUWbqhoceQ][DeviantOllam]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCj74rJ9Lgl3WTngq675wxKg][Noodle]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UC_mmaVYaFmlfdxuKb6U69Yw][Speeed]]
+*** Technology :technology:
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCR-DXc1voovS8nhAvccRZhg][Jeff Geerling]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCUMwY9iS8oMyWDYIe6_RmoA][No Boilerplate]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCwHwDuNd9lCdA7chyyquDXw][Bread on Penguins]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCgdTVe88YVSrOZ9qKumhULQ][Hardware Haven]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UC9-y-6csu5WGm29I7JiwpnA][Computerphile]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg][Two Minute Papers]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UC_iD0xppBwwsrM9DegC5cQQ][Jon Gjengset]]
+**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCSp-OaMpsO8K0KkOqyBl7_w][Let's Get Rusty]]
+
+

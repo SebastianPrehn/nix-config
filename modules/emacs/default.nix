@@ -16,6 +16,7 @@ in
     ".emacs.d/init.el".source = ./init.el;
     ".emacs.d/lisp".source = ./lisp;
     ".emacs.d/modules".source = ./modules;
+    ".emacs.d/elfeed.org".source = ./modules/misc/elfeed/elfeed.org;
   };
 
   home.packages = [
