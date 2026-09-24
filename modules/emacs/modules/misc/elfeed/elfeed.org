@@ -1,7 +1,7 @@
 #+TITLE: Elfeed Feeds
 
-* Feeds
-** Blogs :elfeed:
+* Feeds :elfeed:
+** Blogs :blogs:
 *** [[http://nullprogram.com/feed/][Chris Wellons' null program]]
 *** [[https://sophiebos.io/index.xml][Sophie Bosio]]
 *** [[https://sigkill.dk/atom.xml][Troels Henriksen]]
@@ -11,25 +11,22 @@
 *** [[https://writing.kemitchell.com/feed.xml][Kyle E. Mitchell]]
 *** [[https://pythonspeed.com/atom.xml][Itamar Turner-Trauring]]
 *** [[https://ploum.net/atom_en.xml][Lionel Dricot (Ploum)]]
-*** [[https://protesilaos.com/politics.xml][Protesilaos' Politics Blog]]
-*** [[https://protesilaos.com/commentary.xml][Protesilaos' Commentary Blog]]
-*** [[https://protesilaos.com/games.xml][Protesilaos' Gaming Blog]]
 *** [[https://noonker.github.io/index.xml][Noonker]]
 *** [[https://simon.peytonjones.org/feed.xml][Simon Peyton Jones]]
 *** [[https://johnrakestraw.com/index.xml][John Rakestraw]]
 *** [[https://weeklyrust.substack.com/feed][Weekly Rust]]
 *** [[https://www.rousette.org.uk/index.xml][Rousette]]
 *** [[https://notthebe.ee/rss.xml][Wolfgang]]
+*** [[https://seldo.com/rss.xml][Laurie Voss' blog]]
 *** Security :security:
 **** [[https://www.schneier.com/feed/atom/][Bruce Schneier on Security]]
 *** Emacs :emacs:
 **** [[https://planet.emacslife.com/atom.xml][Planet Emacslife]]
 **** [[https://sachachua.com/blog/category/emacs-news/feed/index.xml][Emacs News]]
 **** [[https://sachachua.com/blog/category/emacs/feed/index.xml][Sacha Chua]]
-**** [[https://protesilaos.com/codelog.xml][Protesilaos' Coding Blog]]
 *** Comics :comics:
 **** [[https://xkcd.com/rss.xml][XKCD]]
-** Youtube :elfeed:
+** Youtube :youtube:
 *** Entertainment :entertainment:
 **** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCCbfB3cQtkEAiKfdRQnfQvw][Jesse Cox]]
 **** [[https://www.youtube.com/feeds/videos.xml?channel_id=UC8bSNxb8Oc7b28N2TTrQC1g][Too Old for This]]
