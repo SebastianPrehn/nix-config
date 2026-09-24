@@ -29,6 +29,7 @@
   (evil-set-initial-state 'magit-diff-mode 'insert))
 
 (use-package evil-collection
+  :demand t
   :after evil
   :init
   (setq evil-collection-outline-bind-tab-p t) ;; '<TAB>' cycles visibility in 'outline-minor-mode'
@@ -37,16 +38,19 @@
 
 
 (use-package evil-commentary
+  :demand t
   :after evil
   :config
   (evil-commentary-mode)) ;; globally enable evil-commentary
 
 (use-package evil-surround
+  :demand t
   :after evil
   :config
   (global-evil-surround-mode 1)) ;; globally enable evil-surround
 
 (use-package evil-goggles
+  :demand t
   :after evil
   :config
   (evil-goggles-mode)
