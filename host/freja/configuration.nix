@@ -12,7 +12,6 @@
   programs.zsh.enable = true;
 
   environment.systemPackages = [
-    pkgs.neovim
     pkgs.wezterm
     pkgs.zotero
     pkgs.vlc-bin

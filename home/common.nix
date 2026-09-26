@@ -75,5 +75,11 @@
     };
   };
 
+  programs.neovim = {
+	enable = true;
+	viAlias = true;
+	vimAlias = true;
+  };
+
   home.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
 }
