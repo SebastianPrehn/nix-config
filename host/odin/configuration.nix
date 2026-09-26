@@ -65,11 +65,22 @@
       "nix-command"
       "flakes"
     ];
-    substituters = [ "https://nix-community.cachix.org" ];
-    trusted-public-keys = [ "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=" ];
+    extra-substituters = [
+      "https://nix-community.cachix.org"
+      "https://cache.nixos-cuda.org"
+    ];
+    extra-trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+    ];
   };
 
-  nixpkgs.overlays = [ inputs.emacs-overlay.overlays.default ];
+  nixpkgs.overlays = [
+    inputs.emacs-overlay.overlays.default
+    (final: _prev: {
+      koboldcpp-bin = final.callPackage ../../pkgs/koboldcpp-bin/package.nix { };
+    })
+  ];
 
   programs.zsh.enable = true;
 
@@ -117,13 +128,16 @@
     xivlauncher
     thunar
     thunar-archive-plugin
+    koboldcpp-bin # test to see if pkgs work
     heroic
     pkgs-stable.bottles
     wineWow64Packages.waylandFull
-    pkgs-cuda.koboldcpp
-    (ollama.override { acceleration = "cuda"; })
+    #(pkgs-cuda.koboldcpp.override {
+    #  cudaArches = [ "sm_86" ];
+    #  vulkanSupport = false;
+    #  clblastSupport = false;
+    #})
     sillytavern
-    #fido2-manage
     unzip
     prismlauncher
     nautilus
@@ -131,6 +145,11 @@
     networkmanagerapplet
     dig
   ];
+
+  services.ollama = {
+    enable = true;
+    package = pkgs-cuda.ollama;
+  };
 
   services.sabnzbd = {
     enable = true;

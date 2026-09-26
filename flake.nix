@@ -33,6 +33,7 @@
         imports = [
           ./host/odin
           ./modules/devshell.nix
+          ./modules/packages.nix
         ];
       }
     );

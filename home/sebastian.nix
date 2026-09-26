@@ -68,8 +68,7 @@
 
     shellAliases = {
       ll = "ls -l";
-      upnix = "sudo nixos-rebuild switch --flake .#odin";
-      koboldcpp = "LD_PRELOAD=/run/opengl-driver/lib/libcuda.so.1 koboldcpp";
+      #koboldcpp = "LD_PRELOAD=/run/opengl-driver/lib/libcuda.so.1 koboldcpp";
       kuvpn = "nmcli --ask con up KUVPN";
       kuvpn-down = "nmcli con down KUVPN";
       proton-dk = "nmcli con up dk-1-DK-55";
