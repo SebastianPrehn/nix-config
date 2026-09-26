@@ -22,6 +22,7 @@ in
   home.packages = [
     pkgs.nerd-fonts.symbols-only
     pkgs.nixfmt
+    pkgs.nixd
     pkgs.futhark
     pkgs.clang-tools
     pkgs.pandoc
