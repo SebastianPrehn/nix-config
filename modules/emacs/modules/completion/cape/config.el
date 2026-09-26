@@ -16,9 +16,10 @@
   (add-hook 'eglot-managed-mode-hook
             (lambda ()
               (setq-local completion-at-point-functions
-                          (list (cape-capf-super
-                                 #'eglot-completion-at-point
-                                 #'cape-dabbrev))))))
+                          (list #'tempel-expand
+                                (cape-capf-super #'eglot-completion-at-point
+                                                 #'cape-dabbrev)
+                                #'cape-file)))))
 
 (provide 'slp-cape)
 ;;; config.el ends here
