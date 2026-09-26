@@ -6,6 +6,10 @@
     nixpkgs-stable = {
       url = "github:nixos/nixpkgs/nixos-26.05";
     };
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -30,9 +34,10 @@
     inputs.flake-parts.lib.mkFlake { inherit inputs; } (
       { ... }:
       {
-        systems = [ "x86_64-linux" ];
+        systems = [ "x86_64-linux" "aarch64-darwin" ];
         imports = [
           ./host/odin
+          ./host/freja
           ./modules/devshell.nix
           ./modules/packages.nix
         ];

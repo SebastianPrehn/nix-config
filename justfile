@@ -10,4 +10,4 @@ check:
 	nix flake check
 
 switch:
-	nh os switch .
+    {{ if os() == "macos" { "nh darwin switch ." } else { "nh os switch ." } }}

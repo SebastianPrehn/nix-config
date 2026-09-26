@@ -1,7 +1,10 @@
 {
   perSystem =
-    { pkgs, ... }:
+    { pkgs, lib, ... }:
     {
-      packages.koboldcpp-bin = pkgs.callPackage ../pkgs/koboldcpp-bin/package.nix { };
+      # Linux only:
+      packages = lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
+        koboldcpp-bin = pkgs.callPackage ../pkgs/koboldcpp-bin/package.nix { };
+      };
     };
 }

@@ -27,7 +27,7 @@
         home-manager.useGlobalPkgs = true; # use system pkgs
         home-manager.useUserPackages = true; # install user pkgs via nixpkgs
         home-manager.extraSpecialArgs = { inherit inputs; };
-        home-manager.users.sebastian = import ../../home/sebastian.nix;
+        home-manager.users.sebastian = import ../../home/odin.nix;
       }
     ];
   };

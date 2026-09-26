@@ -128,15 +128,10 @@
     xivlauncher
     thunar
     thunar-archive-plugin
-    koboldcpp-bin # test to see if pkgs work
+    koboldcpp-bin 
     heroic
     pkgs-stable.bottles
     wineWow64Packages.waylandFull
-    #(pkgs-cuda.koboldcpp.override {
-    #  cudaArches = [ "sm_86" ];
-    #  vulkanSupport = false;
-    #  clblastSupport = false;
-    #})
     sillytavern
     unzip
     prismlauncher
@@ -201,10 +196,10 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
+  #programs.gnupg.agent = {
+  #  enable = true;
+  #  enableSSHSupport = true;
+  #};
 
   security.pam.services = {
     login.u2fAuth = true;

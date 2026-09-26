@@ -1,15 +1,8 @@
-{ pkgs, ... }: {
-  home.username = "sebastian";
-  home.homeDirectory = "/home/sebastian";
-  home.stateVersion = "25.11";
+{ pkgs, ... }:
+{
+  imports = [ ../modules/emacs ];
 
   programs.home-manager.enable = true;
-
-  imports = [
-    ../modules/niri
-    ../modules/waybar
-    ../modules/emacs
-  ];
 
   programs.git = {
     enable = true;
@@ -19,9 +12,7 @@
         email = "slp@sebastianprehn.dk";
         signingKey = "0xA14DA60EC4964E9E";
       };
-      commit = {
-        gpgsign = true;
-      };
+      commit.gpgsign = true;
     };
   };
 
@@ -32,7 +23,6 @@
 
   programs.gpg = {
     enable = true;
-
     scdaemonSettings = {
       disable-ccid = true;
     };
@@ -60,23 +50,19 @@
     };
   };
 
+  services.gpg-agent = {
+    enable = true;
+    enableSshSupport = true;
+    defaultCacheTtl = 60;
+    maxCacheTtl = 120;
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      ll = "ls -l";
-      #koboldcpp = "LD_PRELOAD=/run/opengl-driver/lib/libcuda.so.1 koboldcpp";
-      kuvpn = "nmcli --ask con up KUVPN";
-      kuvpn-down = "nmcli con down KUVPN";
-      proton-dk = "nmcli con up dk-1-DK-55";
-      proton-dk-down = "nmcli con down dk-1-DK-55";
-      torrent-dk = "nmcli con up torrent-dk-51";
-      torrent-dk-down = "nmcli con down torrent-dk-51";
-    };
-
+    shellAliases.ll = "ls -l";
     history = {
       size = 10000;
       path = "$HOME/.zsh_history";
@@ -89,22 +75,5 @@
     };
   };
 
-  services.gpg-agent = {
-    enable = true;
-
-    defaultCacheTtl = 60;
-    maxCacheTtl = 120;
-    pinentry.package = pkgs.pinentry-curses;
-    extraConfig = ''
-      ttyname $GPG_TTY
-    '';
-  };
-
-  home.packages = with pkgs; [
-    discord
-    nerd-fonts.jetbrains-mono
-
-  ];
-  fonts.fontconfig.enable = true;
-
+  home.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
 }
