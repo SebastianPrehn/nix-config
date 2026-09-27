@@ -19,6 +19,26 @@
     torrent-dk-down = "nmcli con down torrent-dk-51";
   };
 
-  home.packages = [ pkgs.discord ];
+  services.swaync = {
+    enable = true;
+    settings = {
+      positionX = "right";
+      positionY = "top";
+      layer = "overlay";
+      control-center-layer = "top";
+      timeout = 5;
+      notification-window-width = 400;
+      widgets = [
+        "title"
+        "dnd"
+        "notifications"
+      ];
+    };
+    style = ''
+      * { font-family: "Comic Mono"; }
+    '';
+  };
+
+  home.packages = [ pkgs.discord pkgs.libnotify ];
   fonts.fontconfig.enable = true;
 }
