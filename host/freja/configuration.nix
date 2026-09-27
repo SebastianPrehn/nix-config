@@ -15,7 +15,6 @@
     wezterm
     zotero
     vlc-bin
-    ghostty-bin
     python314
     imagemagick
     ripgrep

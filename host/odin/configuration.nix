@@ -118,7 +118,6 @@
     git
     curl
     firefox
-    ghostty
     fuzzel
     xwayland-satellite
     awww

@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-  imports = [ ../modules/emacs ];
+  imports = [
+    ../modules/emacs
+    ../modules/ghostty
+  ];
 
   programs.home-manager.enable = true;
 
@@ -79,6 +82,8 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
+    withRuby = true;
+    withPython3 = true;
   };
 
   home.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
