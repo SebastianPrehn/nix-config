@@ -78,6 +78,33 @@
     };
   };
 
+  programs.starship = {
+    enable = true;
+    settings = {
+      add_newline = false;
+      format = "$directory$git_branch$git_status$nix_shell$cmd_duration$line_break$character";
+
+      palette = "wilmersdorf";
+      palettes.wilmersdorf = {
+        accent = "#819cd6";
+        teal = "#7ebebd";
+        violet = "#b0a2e7";
+        yellow = "#cfcf9c";
+        lilac = "#e1c1ee";
+      };
+
+      directory.style = "bold accent";
+      git_branch.style = "teal";
+      git_status.style = "lilac";
+      nix_shell.style = "violet";
+      cmd_duration.style = "yellow";
+      character = {
+        success_symbol = "[❯](accent)";
+        error_symbol = "[❯](lilac)";
+      };
+    };
+  };
+
   programs.neovim = {
     enable = true;
     viAlias = true;
