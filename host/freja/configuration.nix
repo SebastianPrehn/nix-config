@@ -11,19 +11,27 @@
 
   programs.zsh.enable = true;
 
-  environment.systemPackages = [
-    pkgs.wezterm
-    pkgs.zotero
-    pkgs.vlc-bin
-    pkgs.ghostty-bin
+  environment.systemPackages = with pkgs; [
+    wezterm
+    zotero
+    vlc-bin
+    ghostty-bin
+    python314
+    imagemagick
+    ripgrep
   ];
 
   nix.settings = {
     experimental-features = [
       "nix-command"
       "flakes"
-    ]; 
+    ];
     ssl-cert-file = "/etc/ssl/cert.pem";
+  };
+
+  homebrew = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   security.pam.services.sudo_local.touchIdAuth = true;
