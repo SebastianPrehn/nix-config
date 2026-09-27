@@ -128,7 +128,7 @@
     xivlauncher
     thunar
     thunar-archive-plugin
-    koboldcpp-bin 
+    koboldcpp-bin
     heroic
     pkgs-stable.bottles
     wineWow64Packages.waylandFull
