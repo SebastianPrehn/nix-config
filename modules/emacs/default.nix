@@ -21,6 +21,7 @@ in
 
   home.packages = [
     pkgs.nerd-fonts.symbols-only
+    pkgs.comic-mono
     pkgs.nixfmt
     pkgs.nixd
     pkgs.futhark
