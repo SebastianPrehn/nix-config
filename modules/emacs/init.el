@@ -94,6 +94,8 @@
  :lang futhark
  :lang markdown)
 
+(when (eq system-type 'darwin)
+  (slp/modules! :os macos))
 
 (provide 'init)
 ;;; init.el ends here

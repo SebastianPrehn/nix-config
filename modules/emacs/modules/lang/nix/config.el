@@ -1,7 +1,13 @@
 ;;; nix/config.el --- Nix language support -*- lexical-binding: t -*-
 
-(defconst slp/nix-config-flake "/home/sebastian/nix-config"
+(defconst slp/nix-config-flake (expand-file-name "~/nix-config")
   "My system flake: sourceo f NixOS/home-manager options, and fallback nixpkgs.")
+
+(defconst slp/nix-host
+  (pcase system-type
+    ('darwin    '(nix-darwin . "darwinConfigurations.freja"))
+    ('gnu/linux '(nixos      . "nixosConfigurations.odin")))
+  "(OPTIONS-NAME . FLAKE-ATTR) of this machine's system configuration.")
 
 (defun slp/nixd-configuration (_server)
   "Return nixd settings for the project eglot is starting in.
@@ -14,15 +20,19 @@ always comes from odin's configuration."
           (if root
               (format "(builtins.getFlake \"%s\").inputs.nixpkgs or %s.inputs.nixpkgs"
                       (directory-file-name (expand-file-name root)) sys)
-            (format "%s.inputs.nixpkgs" sys))))
+            (format "%s.inputs.nixpkgs" sys)))
+         (host-opts (and slp/nix-host
+                         (format "%s.%s.options" sys (cdr slp/nix-host)))))
     `(:nixd
       (:nixpkgs
        (:expr ,(format "import (%s) { }" nixpkgs))
-       :options
-       (:nixos
-        (:expr ,(format "%s.nixosConfigurations.odin.options" sys))
-        :home-manager
-        (:expr ,(format "%s.nixosConfigurations.odin.options.home-manager.users.type.getSubOptions [ ]" sys)))))))
+       ,@(when host-opts
+           `(:options
+             (,(intern (format ":%s" (car slp/nix-host)))
+              (:expr ,host-opts)
+              :home-manager
+              (:expr ,(format "%s.home-manager.users.type.getSubOptions [ ]"
+                              host-opts)))))))))
 
 (use-package nix-mode
   :mode "\\.nix\\'"
