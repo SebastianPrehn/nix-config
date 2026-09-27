@@ -9,15 +9,23 @@ let
 in
 {
   home.packages = [ pkgs.comic-mono ];
-  programs.tmux.enable = true;
+  programs.tmux = {
+    enable = true;
+    extraConfig = ''
+      	set -g status-style "bg=black,fg=brightblack"
+      	set -g window-status-current-style "fg=blue,bold"
+      	set -g pane-active-border-style "fg=blue"
+      	set -g message-style "bg=black,fg=blue"
+      	'';
+  };
 
   programs.ghostty = {
     enable = true;
     package = if isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
     settings = lib.mkMerge [
       {
-        theme = "Nord";
-        font-size = 13;
+        theme = "Wilmersdorf";
+        font-size = 14;
         font-family = "Comic Mono";
         command = lib.getExe config.programs.tmux.package;
         adjust-cell-height = "50%";
