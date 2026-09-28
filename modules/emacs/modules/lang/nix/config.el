@@ -44,7 +44,7 @@ always comes from odin's configuration."
 
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs '((nix-mode nix-ts-mode) . ("nixd")))
-  (setq-default eglot-workspace-configuration #'slp/nixd-configuration))
+  (add-to-list 'slp/eglot-workspace-functions #'slp/nixd-configuration))
 
 (provide 'slp-nix)
 ;;; config.el ends here

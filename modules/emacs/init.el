@@ -85,14 +85,16 @@
  :completion tempel
  :completion vertico
  :completion which-key
- :misc elfeed
- :misc speedbar
  :vc magit
  :lang eglot
  :lang nix
  :lang cpp
  :lang futhark
- :lang markdown)
+ :lang markdown
+ :lang rust
+ :tool elfeed
+ :tool envrc)
+
 
 (when (eq system-type 'darwin)
   (slp/modules! :os macos))

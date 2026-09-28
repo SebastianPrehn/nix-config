@@ -16,7 +16,7 @@ in
     ".emacs.d/init.el".source = ./init.el;
     ".emacs.d/lisp".source = ./lisp;
     ".emacs.d/modules".source = ./modules;
-    ".emacs.d/elfeed.org".source = ./modules/misc/elfeed/elfeed.org;
+    ".emacs.d/elfeed.org".source = ./modules/tool/elfeed/elfeed.org;
   };
 
   home.packages = [
@@ -39,6 +39,8 @@ in
         (epkgs.treesit-grammars.with-grammars (grammars: [
           grammars.tree-sitter-cpp
           grammars.tree-sitter-cuda
+          grammars.tree-sitter-rust
+          grammars.tree-sitter-toml
         ]))
       ];
     };
