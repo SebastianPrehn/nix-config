@@ -82,7 +82,6 @@
   ;; open
   (slp/leader-keys
     "o" '(:ignore :wk "open")
-    "os" '(speedbar :wk "speedbar")
     "oe" '(elfeed :wk "elfeed"))
 
   ;; search
