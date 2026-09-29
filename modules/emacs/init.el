@@ -73,6 +73,7 @@
 (slp/modules!
  :ui fonts
  :ui modeline
+ :ui eldoc-box
  :ui theme
  :editor evil
  :kbd general
@@ -86,6 +87,7 @@
  :completion vertico
  :completion which-key
  :vc magit
+ :lang elisp
  :lang eglot
  :lang nix
  :lang cpp

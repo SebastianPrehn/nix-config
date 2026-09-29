@@ -13,6 +13,7 @@
   (corfu-separator ?\s)
   (corfu-quit-at-boundary nil)
   (corfu-quit-no-match nil)
+  (corfu-popupinfo-delay '(0.5 . 0.2)) ; first popup after 0.5s, then 0.2s
   :config
   (global-corfu-mode))
 

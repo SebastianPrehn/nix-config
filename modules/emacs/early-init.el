@@ -8,7 +8,7 @@
 
 ;;; Code:
 
-(setq package-enable-at-startup nil)
+(setq package-enable-at-startup t)
 
 
 (setq frame-resize-pixelwise t
