@@ -27,6 +27,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixpkgs-stable.follows = "nixpkgs-stable";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+    };
   };
 
   outputs =
