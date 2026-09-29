@@ -19,14 +19,14 @@ in
     ".emacs.d/elfeed.org".source = ./modules/tool/elfeed/elfeed.org;
   };
 
-  home.packages = [
-    pkgs.nerd-fonts.symbols-only
-    pkgs.comic-mono
-    pkgs.nixfmt
-    pkgs.nixd
-    pkgs.futhark
-    pkgs.clang-tools
-    pkgs.pandoc
+  home.packages = with pkgs; [
+    nerd-fonts.symbols-only
+    comic-mono
+    nixfmt
+    nixd
+    futhark
+    clang-tools
+    pandoc
   ];
 
   programs.emacs = {
