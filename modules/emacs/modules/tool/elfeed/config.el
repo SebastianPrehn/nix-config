@@ -18,6 +18,9 @@
         (list (expand-file-name "elfeed.org" user-emacs-directory)))
   (elfeed-org))
 
+(slp/when-module kbd general
+  (slp/leader-keys
+    "oe" '(elfeed :wk "elfeed")))
 
 (provide 'slp-elfeed)
 ;;; config.el ends here

@@ -31,7 +31,6 @@
 
 (slp/when-module kbd general
   (slp/leader-keys
-    "e" '(:ignore t :wk "envrc")
     "ea" '(envrc-allow :wk "allow .envrc")
     "er" '(envrc-reload :wk "reload environment")
     "eR" '(envrc-reload-all :wk "reload all buffers")

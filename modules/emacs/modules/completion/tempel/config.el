@@ -21,5 +21,10 @@
   :config
   (setq tempel-path (expand-file-name "templates" user-emacs-directory)))
 
+(slp/when-module kbd general
+  (slp/leader-keys
+    "tc" '(tempel-complete :wk "complete template")
+    "ti" '(tempel-insert :wk "insert template")))
+
 (provide 'slp-tempel)
 ;;; config.el ends here
