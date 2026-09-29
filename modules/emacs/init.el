@@ -93,6 +93,7 @@
  :lang markdown
  :lang rust
  :tool elfeed
+ :tool helpful
  :tool envrc)
 
 
