@@ -3,6 +3,7 @@
   imports = [
     ../modules/emacs
     ../modules/ghostty
+    ../modules/thunderbird
   ];
 
   programs.home-manager.enable = true;
