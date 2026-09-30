@@ -1,5 +1,12 @@
-{ pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
+  inherit (pkgs.stdenv.hostPlatform) isDarwin;
+
   moduleConfigs = builtins.filter (f: lib.hasSuffix "config.el" (toString f)) (
     lib.filesystem.listFilesRecursive ./modules
   );
@@ -51,4 +58,13 @@ in
     defaultEditor = true;
     client.enable = true;
   };
+
+  # On MacOS, start the daemon from inside Emacs.app so its frame count as a
+  # regular app (Dock, Cmd+Tab) instead of an unbundled background process.
+  launchd.agents.emacs.config.ProgramArguments = lib.mkIf isDarwin (
+    lib.mkForce [
+      "${config.services.emacs.package}/Applications/Emacs.app/Contents/MacOS/Emacs"
+      "--fg-daemon"
+    ]
+  );
 }
