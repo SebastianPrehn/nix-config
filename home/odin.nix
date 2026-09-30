@@ -4,6 +4,7 @@
     ./common.nix
     ../modules/niri
     ../modules/waybar
+    ../modules/protonmail-bridge
   ];
 
   home.stateVersion = "25.11";
@@ -39,6 +40,9 @@
     '';
   };
 
-  home.packages = [ pkgs.discord pkgs.libnotify ];
+  home.packages = [
+    pkgs.discord
+    pkgs.libnotify
+  ];
   fonts.fontconfig.enable = true;
 }

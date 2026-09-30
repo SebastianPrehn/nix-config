@@ -13,7 +13,6 @@
 
   environment.systemPackages = with pkgs; [
     wezterm
-    zotero
     vlc-bin
     python314
     imagemagick
@@ -31,6 +30,9 @@
   homebrew = {
     enable = true;
     enableZshIntegration = true;
+    casks = [
+      "protonmail-bridge"
+    ];
   };
 
   security.pam.services.sudo_local.touchIdAuth = true;

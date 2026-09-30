@@ -28,6 +28,7 @@ in
       # Use secret keys from existing gpgp-agent instead of Thunderbird's.
       withExternalGnupg = true;
       accountsOrder = [
+        "proton"
         "ucph"
         "gmail"
         "icloud"
