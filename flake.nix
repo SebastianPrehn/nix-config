@@ -27,6 +27,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixpkgs-stable.follows = "nixpkgs-stable";
     };
+    private = {
+      url = "git+ssh://git@github.com/SebastianPrehn/nix-private";
+      flake = false;
+    };
   };
 
   outputs =

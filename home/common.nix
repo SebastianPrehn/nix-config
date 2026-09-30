@@ -1,6 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
+    "${inputs.private}/accounts.nix"
     ../modules/emacs
     ../modules/ghostty
     ../modules/thunderbird
