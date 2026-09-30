@@ -27,6 +27,11 @@ in
       isDefault = true;
       # Use secret keys from existing gpgp-agent instead of Thunderbird's.
       withExternalGnupg = true;
+      accountsOrder = [
+        "ucph"
+        "gmail"
+        "icloud"
+      ];
     };
   };
 
