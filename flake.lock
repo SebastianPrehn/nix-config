@@ -120,11 +120,11 @@
     "private": {
       "flake": false,
       "locked": {
-        "lastModified": 1790797511,
-        "narHash": "sha256-MHetm9mdZ3Yzr81eHylg10I5PFtzuUkOOcDgtPKUiLE=",
+        "lastModified": 1790883538,
+        "narHash": "sha256-cdlA7qmMFqx3hmuvJH7rCywB0avsmE2Tle7vR/zt03I=",
         "ref": "refs/heads/main",
-        "rev": "f74456725247445e946634a589059ccdf49769d1",
-        "revCount": 6,
+        "rev": "81ccee960c0bbcbc135833bdb9c1405f58d5cd51",
+        "revCount": 8,
         "type": "git",
         "url": "ssh://git@github.com/SebastianPrehn/nix-private"
       },

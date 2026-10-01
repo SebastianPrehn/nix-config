@@ -21,6 +21,9 @@ in
       "mailnews.default_sort_type" = 18;
       "mailnews.default_sort_order" = 2;
       "mailnews.default_view_flags" = 1;
+      # reply on top of quote, signature above quote
+      "mail.identity.default.reply_on_top" = 1;
+      "mail.identity.default.sig_bottom" = false;
     };
 
     profiles.default = {
