@@ -87,6 +87,7 @@
  :completion vertico
  :completion which-key
  :vc magit
+ :org org
  :lang elisp
  :lang eglot
  :lang nix
