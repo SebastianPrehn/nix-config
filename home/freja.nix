@@ -6,4 +6,9 @@
   home.stateVersion = "26.05";
 
   services.gpg-agent.pinentry.package = pkgs.pinentry_mac;
+
+  programs.zsh.shellAliases = {
+    ll = "ls -l";
+    em = "emacs -nw";
+  };
 }

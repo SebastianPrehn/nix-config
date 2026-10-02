@@ -31,7 +31,7 @@
   "Contacts, with birthdays and anniversaries for the agenda.")
 
 (defconst slp/bibliography-file
-  (expand-file-name "references/bibliograpy.bib" org-directory)
+  (expand-file-name "references/bibliography.bib" org-directory)
   "BibTeX bibliography used by org-cite and citar.")
 
 (use-package org
@@ -45,8 +45,8 @@
   (org-hide-emphasis-markers nil)
   (org-hide-macro-markers nil)
   (org-hide-leading-stars nil)
-  (org-cycle-seperator-lines 0)
-  (org-fold-catch-inivisible-edits 'show)
+  (org-cycle-separator-lines 0)
+  (org-fold-catch-invisible-edits 'show)
   (org-return-follows-link nil)
   (org-loop-over-headlines-in-active-region 'start-level)
   (org-insert-heading-respect-content t)
@@ -77,7 +77,8 @@
      ("focus" . ?f)
      ("quick" . ?q)
      (:endgroup)
-     ("ticket" . ?t)))
+     ("ticket" . ?t)
+     ("project" . ?p)))
 
 
   ;; Effort estimates, offered as a fixed list
@@ -114,11 +115,18 @@
            :empty-lines 1)
 
           ("q" "Quick work (15m)" entry (file+headline ,slp/tasks-file "Tasks")
-           "*  TODO %^{Task} :quick:\n:PROPERTIES:\n:Effort: 0:15\n:END:\n"
+           "* TODO %^{Task} :quick:\n:PROPERTIES:\n:Effort: 0:15\n:END:\n"
            :empty-lines 1)
 
           ("c" "Work ticket" entry (file+headline ,slp/work-file "Tickets")
            "* NEXT [%^{Ticket number}] %^{Title} :ticket:\n:PROPERTIES:\n:TICKET: %\\1\n:REQUESTER: %^{Requester (colleague/user)}\n:END:\n%U\n%?"
+           :clock-in t :clock-keep t)
+
+          ("p" "Work project" entry (file+headline ,slp/work-file "Projects")
+           "* TODO %^{Project} [/] :project:\n:PROPERTIES:\n:COOKIE_DATA: todo\n:END:\n#+BEGIN: clocktable :scope subtree :maxlevel 4\n#+END:\n** NEXT %?\n")
+
+          ("s" "Sub-item of what I'm clocked into" entry (clock)
+           "* NEXT %^{What}\n%U\n%?"
            :clock-in t :clock-keep t)
 
           ("n" "Note on current ticket/task" item (clock)
@@ -145,7 +153,8 @@
                         (org-agenda-log-mode-items '(closed clock state))
                         (org-agenda-overriding-header "📅 Today (incl. what I did)")))
             (todo "WAITING" ((org-agenda-overriding-header "⏳ Waiting on others")))
-            (tags-todo "case/NEXT|TODO" ((org-agenda-overriding-header "📂 Open cases")))))
+            (tags-todo "ticket/NEXT|TODO" ((org-agenda-overriding-header "📂 Open tickets")))
+            (tags-todo "project/NEXT|WAITING" ((org-agenda-overriding-header "📦 Projects")))))
 
           ("n" "Next 7 Days"
            agenda ""
