@@ -18,6 +18,7 @@
 *** [[https://www.rousette.org.uk/index.xml][Rousette]]
 *** [[https://notthebe.ee/rss.xml][Wolfgang]]
 *** [[https://seldo.com/rss.xml][Laurie Voss' blog]]
+*** [[https://jenson.org/feed/][Scott Jenson]] :UX:
 *** Security :security:
 **** [[https://www.schneier.com/feed/atom/][Bruce Schneier on Security]]
 *** Emacs :emacs:
@@ -28,17 +29,12 @@
 **** [[https://xkcd.com/rss.xml][XKCD]]
 ** Youtube :youtube:
 *** Entertainment :entertainment:
-**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCCbfB3cQtkEAiKfdRQnfQvw][Jesse Cox]]
-**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UC8bSNxb8Oc7b28N2TTrQC1g][Too Old for This]]
-**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UC7EUErrXAtCjdr8-SuLaGow][Almost Too Old for This]]
 **** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCV6g95OBbVtFmN9uiJzkFqQ][CircleToonsHD]]
 **** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCtJrxXDeJ9bINlrW-RPBI9Q][BeneG.]]
 **** [[ttps://www.youtube.com/feeds/videos.xml?channel_id=UCcoO-8J0EYQHGPFQqwmAzVQ"][exurb2a]]
-**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCXGR70CkW_pXb8n52LzCCRw][Mythical Kitchen]]
 **** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCE1jXbVAGJQEORz9nZqb5bQ][Ahoy]]
 **** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCzJ3EGLJbFcHJJ8r1rNGSJQ][Pint]]
 **** [[https://www.youtube.com/feeds/videos.xml?channel_id=UC-ufRLYrXxrIEApGn9VG5pQ][Reject Convenience]]
-**** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCEQ7KR9enYdQsB6kcMnw0NA][Mortismal Gaming]]
 **** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCsXVk37bltHxD1rDPwtNM8Q][Kurzgesagt]]
 **** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCq8ZAAsI89IoJ-fn1gYpO3g][Nightshift - Kurzgesagt After Dark]]
 **** [[https://www.youtube.com/feeds/videos.xml?channel_id=UCAbAsEZ-0LccTNbl8r-3EaQ][Scott Yu-Jan]]
