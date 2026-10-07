@@ -57,6 +57,9 @@
           block-out-from "screen-capture"
         }
 
+        environment {
+            GTK_IM_MODULE "simple"
+        }
         binds {
           Mod+Shift+T { show-hotkey-overlay; }
           Mod+T       { spawn "ghostty"; }
