@@ -95,6 +95,7 @@
  :lang futhark
  :lang markdown
  :lang rust
+ :lang haskell
  :tool elfeed
  :tool helpful
  :tool envrc)
