@@ -6,10 +6,10 @@
   libxcb,
 }:
 let
-  version = "1.122";
+  version = "1.123";
   src = fetchurl {
     url = "https://github.com/LostRuins/koboldcpp/releases/download/v${version}/koboldcpp-linux-x64";
-    hash = "sha256:c6c452a9040adf1721300c5c2923d43f0c55d7cc5d499e02e0712be41c490add";
+    hash = "sha256:a86d140d5895ad88aeef0fb9e3c500202287072d8ceba0c45108953da09d5ff3";
   };
   exe = runCommand "koboldcpp-${version}-exe" { } ''
     install -Dm755 ${src} $out/bin/koboldcpp
