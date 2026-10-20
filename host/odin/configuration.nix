@@ -79,6 +79,7 @@
     inputs.emacs-overlay.overlays.default
     (final: _prev: {
       koboldcpp-bin = final.callPackage ../../pkgs/koboldcpp-bin/package.nix { };
+      stash = final.callPackage ../../pkgs/stash/package.nix { };
     })
   ];
 
@@ -122,9 +123,9 @@
     awww
     vlc
     vial
-    stash
     xivlauncher
     thunar
+    stash
     thunar-archive-plugin
     koboldcpp-bin
     heroic
