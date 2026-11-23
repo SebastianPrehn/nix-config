@@ -6,7 +6,7 @@
   libxcb,
 }:
 let
-  version = "1.124.2";
+  version = "1.125.1";
   src = fetchurl {
     url = "https://github.com/LostRuins/koboldcpp/releases/download/v${version}/koboldcpp-linux-x64";
     hash = "sha256:c66ae0106673c7d9c41bafcc92c95bc5a6256709e9d853e5e2255bf536c1b069";
