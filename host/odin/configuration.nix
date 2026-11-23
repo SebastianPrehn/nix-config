@@ -79,7 +79,6 @@
     inputs.emacs-overlay.overlays.default
     (final: _prev: {
       koboldcpp-bin = final.callPackage ../../pkgs/koboldcpp-bin/package.nix { };
-      stash = final.callPackage ../../pkgs/stash/package.nix { };
     })
   ];
 
