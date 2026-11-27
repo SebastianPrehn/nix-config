@@ -17,6 +17,7 @@
     python314
     imagemagick
     ripgrep
+    wireguard-tools
   ];
 
   nix.settings = {
